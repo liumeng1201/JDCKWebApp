@@ -27,7 +27,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [
                 APP_NAME: '青龙工具',
-                umeng_key: '626b8dded024421570d8f089'
+                umeng_key: ''
         ] // 配置主包的应用名称
 
         // 管理员    buildConfigField "String", "user_permission", "${user.admin}"
@@ -76,26 +76,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-
         }
         userp {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-
-        }
-        // 第一个马甲包
-        majiabaoOne.initWith(buildTypes.release) // 以release的配置来初始化马甲包配置
-        majiabaoOne {
-            applicationIdSuffix ".one" // 修改马甲包的applicationId，马甲包的application将为com.liunian.majiabaotest.majiabaoOne，即在原来的applicationId后加上配置内容
-            manifestPlaceholders = [APP_NAME: 'JDWeb-1'] // 配置马甲包的应用名称
-        }
-
-        // 第二个马甲包
-        majiabaoTwo.initWith(buildTypes.release) // 以release的配置来初始化马甲包配置
-        majiabaoTwo {
-            applicationIdSuffix ".two" // 修改马甲包的applicationId，马甲包的application将为com.liunian.majiabaotest.majiabaoOne，即在原来的applicationId后加上配置内容
-            manifestPlaceholders = [APP_NAME: 'JDWeb-2'] // 配置马甲包的应用名称
         }
     }
     compileOptions {
